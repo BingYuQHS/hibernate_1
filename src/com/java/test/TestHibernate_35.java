@@ -25,5 +25,6 @@ public class TestHibernate_35 {
 		s.getTransaction().commit();
 		s.close();
 		sf.close();
+		System.out.println("第一次修改提交Git!");
 	}
 }
