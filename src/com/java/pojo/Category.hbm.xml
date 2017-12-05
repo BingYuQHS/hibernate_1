@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.java.pojo">
+	<class name="Category" table="category_">
+		<cache usage="read-only" />
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name"/>
+		<!-- lazy="true"表示通过Category获取产品是延迟加载的 ,cascade="save-update"是级联-->
+		<set name="products" lazy="true" cascade="save-update">
+			<key column="cid" not-null="false" />
+			<one-to-many class="Product" />
+		</set>
+      
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8</property>
+		<property name="connection.username">root</property>
+        <property name="connection.password">7623lwqs</property>
+		<!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- 二级缓存的配置 -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        
+        <!-- 加载源文件 -->
+        <mapping resource="com/java/pojo/Product.hbm.xml" />
+        <mapping resource="com/java/pojo/Category.hbm.xml" />
+        <mapping resource="com/java/pojo/User.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
